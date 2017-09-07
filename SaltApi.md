@@ -37,7 +37,7 @@ single_minion = salt.mid('master')
 ```
 ************
 
-#### run(args:method, tgt, args):
+#### run(args:method, module, tgt, args):
 说明：执行Modules,相当于在命令行执行一个模块
 
 参数:
@@ -45,3 +45,13 @@ single_minion = salt.mid('master')
 * tgt：目标，也就是minion
 * module: 模块
 * args：该模块的参数，例如 `salt '*' cmd.run 'ls'` 其中`ls` 即为参数
+
+使用场景：命令执行、执行模块
+```python3
+method = 'local'
+module = 'cmd.run'
+tgt = '['master','minion']'
+args = 'ls cwd=/tmp'
+ret = salt.run(method=method,module=module,tgt=tgt,args=args)
+print(ret)
+```
