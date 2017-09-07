@@ -50,7 +50,7 @@ single_minion = salt.mid('master')
 ```python3
 method = 'local'
 module = 'cmd.run'
-tgt = '['master','minion']'
+tgt = ['master','minion']
 args = 'ls cwd=/tmp'
 ret = salt.run(method=method,module=module,tgt=tgt,args=args)
 print(ret)
